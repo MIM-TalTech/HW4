@@ -1,8 +1,10 @@
-﻿using HW4.Domain.Quantity;
+﻿using HW4.Data;
+using HW4.Domain.Quantity;
 using HW4.Infra.Quantity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Infra
@@ -10,6 +12,8 @@ namespace Infra
     public class MeasuresRepository : IMeasuresRepository
     {
         private readonly QuantityDbContext db;
+        public string SortOrder { get; set; }
+        public string SearchString { get; set; }
 
         public MeasuresRepository(QuantityDbContext c)
         {
@@ -32,14 +36,48 @@ namespace Infra
 
         }
 
-        public async Task<List<Measure>> Get()
+        private IQueryable<MeasureData> createSorted()
+
         {
-            var l = await db.Measures.ToListAsync();
-            var list = new List<Measure>();
-            foreach (var e in l) list.Add(new Measure(e));
-            return list;
+            IQueryable<MeasureData> measures = from s in db.Measures select s;
+            switch (SortOrder)
+            {
+                case "name_desc":
+                    measures = measures.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    measures = measures.OrderBy(s => s.ValidFrom);
+                    break;
+                case "date_desc":
+                    measures = measures.OrderByDescending(s => s.ValidFrom);
+                    break;
+                default:
+                    measures = measures.OrderBy(s => s.Name);
+                    break;
+            }
+            return measures.AsNoTracking();
+
+        }
+        private IQueryable<MeasureData> createFiltered(IQueryable<MeasureData> set)
+        {
+            if (string.IsNullOrEmpty(SearchString)) return set;
+            
+                return set.Where(s => s.Name.Contains(SearchString)
+                                       || s.Code.Contains(SearchString)
+                                       || s.Id.Contains(SearchString)
+                                       || s.Definition.Contains(SearchString)
+                                       || s.ValidFrom.ToString().Contains(SearchString)
+                                       || s.ValidTo.ToString().Contains(SearchString));
+            
         }
 
+        public async Task<List<Measure>> Get()
+        {
+            var list = await createFiltered(createSorted()).ToListAsync();
+            return list.Select(e => new Measure(e)).ToList();
+        }
+
+       
         public async Task<Measure> Get(string id)
         {
             var d = await db.Measures.FirstOrDefaultAsync(m => m.Id == id);
