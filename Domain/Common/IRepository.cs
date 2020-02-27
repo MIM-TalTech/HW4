@@ -12,6 +12,10 @@ namespace HW4.Domain.Quantity
         Task Update(T obj);
         string SortOrder { get; set;  }
         string SearchString { get; set; }
+        bool HasNextPage { get; set; }
+        bool HasPreviousPage { get; set; }
+        int PageIndex { get; set; } 
+
 
     }
 }

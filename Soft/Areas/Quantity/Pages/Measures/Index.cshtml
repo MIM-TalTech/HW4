@@ -23,7 +23,8 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Items[0].Name)
                 </a>
             </th>
@@ -34,9 +35,10 @@
                 @Html.DisplayNameFor(model => model.Items[0].Definition)
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Items[0].ValidFrom)
-                </a>     
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Items[0].ValidTo)
@@ -45,29 +47,52 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var Item in Model.Items) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => Item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Item.Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Item.Definition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Item.ValidFrom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => Item.ValidTo)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@Item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@Item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@Item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var Item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Item.Definition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Item.ValidFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Item.ValidTo)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@Item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@Item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@Item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
