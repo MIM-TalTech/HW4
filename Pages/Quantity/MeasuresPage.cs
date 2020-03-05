@@ -14,11 +14,20 @@ namespace Pages
         protected internal MeasuresPage(IMeasuresRepository r)
         {
             data = r;
+            PageTitle = "Measures";
         }
 
         [BindProperty]
         public MeasureView Item { get; set; }
         public IList<MeasureView> Items { get; set; }
+        public string PageTitle { get; set; }
+        public string PageSubTitle { get; set; } = "Mingi pealkiri";
+        public string CurrentSort { get; set; } = "Current Sort";
+        public string CurrentFilter { get; set; } = "Current Filter";
+        public int PageIndex { get; set; } = 3;
+        public int TotalPages { get; set; } = 10;
+        public string ItemId => Item.Id;
+
 
     
     }

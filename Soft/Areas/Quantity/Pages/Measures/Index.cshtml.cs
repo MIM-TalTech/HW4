@@ -13,7 +13,12 @@ namespace Soft
     {
        public IndexModel(IMeasuresRepository r ) : base(r) { }
         public string NameSort { get; set; }
-        public string DateSort { get; set; }
+        public string ValidFromSort { get; set; }
+        public string IdSort { get; set; }
+        public string CodeSort { get; set; }
+        public string DefinitionSort { get; set; }
+        public string ValidToSort { get; set; }
+
         public string SearchString { get; set; }
         public bool HasPreviousPage { get; set; }
         public bool HasNextPage { get; set; }
@@ -29,7 +34,11 @@ namespace Soft
         {
             CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            IdSort = sortOrder == "Id" ? "Id_desc" : "Id";
+            CodeSort = sortOrder == "Code" ? "Code_desc" : "Code";
+            DefinitionSort = sortOrder == "Definition" ? "Definition_desc" : "Definition";
+            ValidFromSort = sortOrder == "ValidFrom" ? "ValidFrom_desc" : "ValidFrom";
+            ValidToSort = sortOrder == "ValidTo" ? "ValidTo_desc" : "ValidTo";
             if (searchString != null)
             {
                 pageIndex = 1;

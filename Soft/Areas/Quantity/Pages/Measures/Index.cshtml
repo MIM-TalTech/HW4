@@ -1,98 +1,43 @@
 ﻿@page
+@using HW4.Aids
+@using HW4.Pages.Extensions
+@using HW4.Data.Quantity
 @model Soft.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
+    var page = "/Quantity/Measures";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Find by name:
-            <input type="text" name="SearchString" value="@Model.SearchString" />
-            <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-page="./Index">Back to full List</a>
-        </p>
-    </div>
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
-                   asp-route-currentFilter="@Model.CurrentFilter">
-                    @Html.DisplayNameFor(model => model.Items[0].Name)
-                </a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Definition)
-            </th>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
-                   asp-route-currentFilter="@Model.CurrentFilter">
-                    @Html.DisplayNameFor(model => model.Items[0].ValidFrom)
-                </a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].ValidTo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var Item in Model.Items)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => Item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Item.Code)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Item.Definition)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Item.ValidFrom)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Item.ValidTo)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@Item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@Item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@Item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-
-@{
-    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+@section Create{
+    @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewLinkTitle, $"{page}/Create"))
 }
+<body>
+    <table class="table">
+        <thead>
+            @Html.TableHeaderFor(
+       new Link(Html.DisplayNameFor(model => model.Item.Id), $"{page}?sortOrder={Model.IdSort}"),
+               new Link(Html.DisplayNameFor(model => model.Item.Name), $"{page}?sortOrder={Model.NameSort}"),
+               new Link(Html.DisplayNameFor(model => model.Item.Code), $"{page}?sortOrder={Model.CodeSort}"),
+               new Link(Html.DisplayNameFor(model => model.Item.Definition), $"{page}?sortOrder={Model.DefinitionSort}"),
+               new Link(Html.DisplayNameFor(model => model.Item.ValidFrom), $"{page}?sortOrder={Model.ValidFromSort}"),
+               new Link(Html.DisplayNameFor(model => model.Item.ValidTo), $"{page}?sortOrder={Model.ValidToSort}"))
+            
+        </thead>
+        <tbody>
+            @foreach (var Item in Model.Items)
+            {
+                <tr>
+                    @Html.TableRowFor(
+                   page, Item.Id,
+                   Html.DisplayFor(modelItem => Item.Id),
+                   Html.DisplayFor(modelItem => Item.Name),
+                   Html.DisplayFor(modelItem => Item.Code),
+                   Html.DisplayFor(modelItem => Item.Definition),
+                   Html.DisplayFor(modelItem => Item.ValidFrom),
+                   Html.DisplayFor(modelItem => Item.ValidTo))
 
-
-<a asp-page="./Index"
-   asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.PageIndex - 1)"
-   asp-route-currentFilter="@Model.CurrentFilter"
-   class="btn btn-primary @prevDisabled">
-    Previous
-</a>
-<a asp-page="./Index"
-   asp-route-sortOrder="@Model.CurrentSort"
-   asp-route-pageIndex="@(Model.PageIndex + 1)"
-   asp-route-currentFilter="@Model.CurrentFilter"
-   class="btn btn-primary @nextDisabled">
-    Next
-</a>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
