@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AssemblyName>HW4.Aids</AssemblyName>
+    <RootNamespace>HW4.Aids</RootNamespace>
+  </PropertyGroup>
+
+</Project>

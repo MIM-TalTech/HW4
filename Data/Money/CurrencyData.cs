@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HW4.Data.Money
 {
-    public class CurrencyData : DefinedEntityData
+    public sealed class CurrencyData : DefinedEntityData
     {
     }
 }

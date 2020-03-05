@@ -5,7 +5,7 @@ using System.Text;
 
 namespace HW4.Data.Quantity
 {
-    public class SystemOfUnitsData : DefinedEntityData
+    public sealed class SystemOfUnitsData : DefinedEntityData
     {
     }
 }

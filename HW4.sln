@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{4EF52EDF-315A-4207-A1ED-36301E6B79A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{4EF52EDF-315A-4207-A1ED-36301E6B79A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{F5B1EA99-1631-42E0-8DC5-69841CEA9EB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{F5B1EA99-1631-42E0-8DC5-69841CEA9EB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade", "Facade\Facade.csproj", "{455CB8AA-1244-4288-86E2-9EC42675A278}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade", "Facade\Facade.csproj", "{455CB8AA-1244-4288-86E2-9EC42675A278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{ADA23E76-502C-4A96-8C3E-2CF843A6D36C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{ADA23E76-502C-4A96-8C3E-2CF843A6D36C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pages", "Pages\Pages.csproj", "{02F9F5B9-4B47-4E31-B587-4DC854231930}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pages", "Pages\Pages.csproj", "{02F9F5B9-4B47-4E31-B587-4DC854231930}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soft", "Soft\Soft.csproj", "{162F5875-0974-407D-929B-B8D6D6063FF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soft", "Soft\Soft.csproj", "{162F5875-0974-407D-929B-B8D6D6063FF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{4A5F599F-8E61-485F-92AD-14134C4FBCD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aids", "Aids\Aids.csproj", "{F0852C12-3AB9-402D-BCE1-C0FE7B5FC183}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{162F5875-0974-407D-929B-B8D6D6063FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{162F5875-0974-407D-929B-B8D6D6063FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{162F5875-0974-407D-929B-B8D6D6063FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A5F599F-8E61-485F-92AD-14134C4FBCD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A5F599F-8E61-485F-92AD-14134C4FBCD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A5F599F-8E61-485F-92AD-14134C4FBCD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5F599F-8E61-485F-92AD-14134C4FBCD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0852C12-3AB9-402D-BCE1-C0FE7B5FC183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0852C12-3AB9-402D-BCE1-C0FE7B5FC183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0852C12-3AB9-402D-BCE1-C0FE7B5FC183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0852C12-3AB9-402D-BCE1-C0FE7B5FC183}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

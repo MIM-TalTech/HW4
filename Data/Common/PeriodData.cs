@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HW4.Data.Common
 {
-    public class PeriodData
+    public abstract class PeriodData
     {
         public DateTime? ValidFrom { get; set; }
         public DateTime? ValidTo { get; set; }

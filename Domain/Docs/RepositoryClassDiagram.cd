@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="HW4.Domain.Quantity.IRepository&lt;T&gt;">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HW4.Domain.Quantity.IMeasuresRepository" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quantity\IMeasuresRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HW4.Domain.IPaging">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAUAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\IPaging.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HW4.Domain.ISorting">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ISorting.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HW4.Domain.ISearching">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Common\ISearching.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HW4.Domain.ICrudMethods&lt;T&gt;">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ICrudMethods.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

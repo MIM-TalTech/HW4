@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HW4.Data.Common
 {
-    public class NamedEntityData : UniqueEntityData
+    public abstract class NamedEntityData : UniqueEntityData
     {
 
         public string Name { get; set; }

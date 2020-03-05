@@ -7,7 +7,7 @@ namespace HW4.Domain.Quantity
 {
     public abstract class Entity<T> where T : PeriodData
     {
-        public T Data { get; }
+        public T Data { get; internal set; }
         protected Entity(T data)
         {
             Data = data;

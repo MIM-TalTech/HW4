@@ -3,19 +3,11 @@ using System.Threading.Tasks;
 
 namespace HW4.Domain.Quantity
 {
-    public interface IRepository<T>
+    public interface IRepository<T> : ICrudMethods<T>, IPaging, ISorting, ISearching
     {
-        Task<List<T>> Get();
-        Task<T> Get(string id);
-        Task Delete(string id);
-        Task Add(T obj);
-        Task Update(T obj);
-        string SortOrder { get; set;  }
-        string SearchString { get; set; }
-        bool HasNextPage { get; set; }
-        bool HasPreviousPage { get; set; }
-        int PageIndex { get; set; } 
-
+       
+        
+      
 
     }
 }

@@ -3,7 +3,7 @@ using System;
 
 namespace HW4.Data
 {
-    public class MeasureData : DefinedEntityData
+    public sealed class MeasureData : DefinedEntityData
     {
     }
 }
