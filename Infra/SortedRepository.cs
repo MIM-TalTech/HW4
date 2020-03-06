@@ -62,7 +62,9 @@ namespace HW4.Infra
         private string getName()
         {
             if (string.IsNullOrEmpty(SortOrder)) return string.Empty;
-            return SortOrder.Remove(SortOrder.IndexOf(DescendingString, StringComparison.Ordinal));
+            var idx = SortOrder.IndexOf(DescendingString, StringComparison.Ordinal);
+            if(idx >= 0) return SortOrder.Remove(idx);
+            return SortOrder;
         }
 
         internal bool isDescending(string sortOrder) => sortOrder.EndsWith(DescendingString);

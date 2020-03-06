@@ -32,8 +32,9 @@ namespace Soft
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
+            sortOrder = string.IsNullOrEmpty(sortOrder) ? "Name_desc" : sortOrder;
             CurrentSort = sortOrder;
-            NameSort = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "Name";
+            NameSort = sortOrder == "Name" ? "Name_desc" : "Name";
             IdSort = sortOrder == "Id" ? "Id_desc" : "Id";
             CodeSort = sortOrder == "Code" ? "Code_desc" : "Code";
             DefinitionSort = sortOrder == "Definition" ? "Definition_desc" : "Definition";
