@@ -33,7 +33,7 @@ namespace HW4.Infra
         protected internal IOrderedQueryable<TData> setOrderBy(IQueryable<TData> data, Expression<Func<TData, object>> ex)
         {
             var expression = createExpression();
-            return isDescending(SortOrder) ? data.OrderByDescending(ex) : data.OrderBy(ex);
+            return isDescending() ? data.OrderByDescending(ex) : data.OrderBy(ex);
                     
         }
 
@@ -59,7 +59,7 @@ namespace HW4.Infra
             return typeof(TData).GetProperty(name);
         }
 
-        private string getName()
+        internal string getName()
         {
             if (string.IsNullOrEmpty(SortOrder)) return string.Empty;
             var idx = SortOrder.IndexOf(DescendingString, StringComparison.Ordinal);
@@ -67,6 +67,6 @@ namespace HW4.Infra
             return SortOrder;
         }
 
-        internal bool isDescending(string sortOrder) => sortOrder.EndsWith(DescendingString);
+        internal bool isDescending() => SortOrder.EndsWith(DescendingString);
     }
 }
