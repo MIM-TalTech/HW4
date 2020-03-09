@@ -4,6 +4,7 @@ using HW4.Domain.Quantity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HW4.Infra
@@ -15,6 +16,17 @@ namespace HW4.Infra
         protected FilteredRepository(DbContext c, DbSet<TData> s) : base(c, s)
         {
             
+        }
+        protected internal override IQueryable<TData> createSqlQuery()
+        {
+        var query = base.createSqlQuery();
+            query = addFiltering(query);
+            return query;
+        }
+
+        protected internal virtual IQueryable<TData> addFiltering(IQueryable<TData> query)
+        {
+            return query;
         }
 
         public string SearchString { get; set; }

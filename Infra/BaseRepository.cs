@@ -4,6 +4,7 @@ using HW4.Domain.Quantity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -79,9 +80,35 @@ namespace HW4.Infra
         }
         public virtual async Task<List<TDomain>> Get()
         {
-            throw new NotImplementedException();
+            var query = createSqlQuery();
+            var set = await runSqlQueryAsync(query);
+            return toDomainObjectsList(set);
         }
 
+        internal List<TDomain> toDomainObjectsList(List<TData> set)
+        {
+            var list = new List<TDomain>();
+            foreach(var e in set)
+            {
+                list.Add(toDomainObject(e));
+
+            }
+            return list;
+        }
+
+        protected internal abstract TDomain toDomainObject(TData periodData);
         
+        
+
+        internal async Task<List<TData>> runSqlQueryAsync(IQueryable<TData> query)
+        {
+            return await query.AsNoTracking().ToListAsync();
+        }
+
+        protected internal virtual IQueryable<TData> createSqlQuery()
+        {
+            var query = from s in dbSet select s;
+            return query;
+        }
     }
 }

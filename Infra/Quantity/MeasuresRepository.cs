@@ -22,17 +22,7 @@ namespace Infra
             return await dbSet.FirstOrDefaultAsync(m => m.Id == id);
         }
 
-        
-
-        private IQueryable<MeasureData> createSorted()
-
-        {
-            IQueryable<MeasureData> measures = from s in dbSet select s;
-            measures = setSorting(measures);
-            return measures.AsNoTracking();
-
-        }
-        private IQueryable<MeasureData> createFiltered(IQueryable<MeasureData> set)
+        protected internal override IQueryable<MeasureData> addFiltering(IQueryable<MeasureData> set)
         {
             if (string.IsNullOrEmpty(SearchString)) return set;
             
@@ -45,20 +35,12 @@ namespace Infra
             
         }
 
-        public async override Task<List<Measure>> Get()
-        {
-            var list = await createPaged(createFiltered(createSorted()));
-            HasNextPage = list.HasNextPage;
-            HasPreviousPage = list.HasPreviousPage;
-            return list.Select(e => new Measure(e)).ToList();
-        }
-        private async Task<PaginatedList<MeasureData>> createPaged(IQueryable<MeasureData> dataSet)
-        {
-
-           return await PaginatedList<MeasureData>.CreateAsync(
-                dataSet, PageIndex, PageSize);
-        }
        
-      
+     
+
+        protected internal override Measure toDomainObject(MeasureData d)
+        {
+            return new Measure(d);
+        }
     }
 }

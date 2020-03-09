@@ -17,23 +17,31 @@ namespace HW4.Infra
     {
         protected SortedRepository(DbContext c, DbSet<TData> s) : base(c, s)
         {
-           
+          
         }
-
+        protected internal override IQueryable<TData> createSqlQuery()
+        {
+            var query =base.createSqlQuery();
+            query = addSorting(query);
+            return query;
+        }
         public string SortOrder { get; set; }
         public string DescendingString => "_desc";
 
-        protected internal IQueryable<TData> setSorting(IQueryable<TData> data)
+        protected internal IQueryable<TData> addSorting(IQueryable<TData> query)
         {
             var expression = createExpression();
-            if (expression is null) return data;
-            return setOrderBy(data, expression);
+            var r = expression is null ? query  : addOrderBy(query, expression);
+            return r;
         }
 
-        protected internal IOrderedQueryable<TData> setOrderBy(IQueryable<TData> data, Expression<Func<TData, object>> ex)
+        protected internal IQueryable<TData> addOrderBy(IQueryable<TData> query, Expression<Func<TData, object>> ex)
         {
-            var expression = createExpression();
-            return isDescending() ? data.OrderByDescending(ex) : data.OrderBy(ex);
+            if (query is null) return null;
+            if (ex is null) return query;
+
+            try { return isDescending() ? query.OrderByDescending(ex) : query.OrderBy(ex); }
+            catch { return query; }
                     
         }
 
@@ -67,6 +75,8 @@ namespace HW4.Infra
             return SortOrder;
         }
 
-        internal bool isDescending() => SortOrder.EndsWith(DescendingString);
+        internal bool isDescending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
+
+        
     }
 }
