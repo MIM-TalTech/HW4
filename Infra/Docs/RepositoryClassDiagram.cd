@@ -1,48 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Infra.MeasuresRepository">
-    <Position X="3.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAQAAAABAAAAAAIAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Quantity\MeasuresRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="HW4.Infra.SortedRepository&lt;TDomain, TData&gt;">
-    <Position X="7.75" Y="2.75" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAABAAAAAAAQAAAAAAAQAAgABAkAAAAAQAEAIAAAAA=</HashCode>
       <FileName>SortedRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="HW4.Infra.FilteredRepository&lt;TDomain, TData&gt;">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAgAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>FilteredRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="HW4.Infra.PaginatedRepository&lt;TDomain, TData&gt;">
-    <Position X="5.25" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <HashCode>AAAAAgACAACAAEAAAAAAEAA0AAAAAAAAAAAAEgAAAAA=</HashCode>
       <FileName>PaginatedRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="HW4.Infra.UniqueEntityRepository&lt;TDomain, TData&gt;" Collapsed="true">
-    <Position X="3.5" Y="3.25" Width="1.5" />
+    <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UniqueEntityRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HW4.Infra.BaseRepository&lt;TDomain, TData&gt;" Collapsed="true">
-    <Position X="9.5" Y="1" Width="1.5" />
+  <Class Name="HW4.Infra.BaseRepository&lt;TDomain, TData&gt;">
+    <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYQAAAAAAAQAABAAAAAgAAAAAEAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AAYQAAAAAAAQAABAAAAAgCAgAAEAAAAAGAAAAAACAAA=</HashCode>
       <FileName>BaseRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
