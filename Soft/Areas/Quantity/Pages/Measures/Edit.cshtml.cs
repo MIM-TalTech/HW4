@@ -11,17 +11,7 @@ namespace Soft
         public EditModel(IMeasuresRepository r) : base(r) { }
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Item = MeasureViewFactory.Create(await data.Get(id));
-
-            if (Item == null)
-            {
-                return NotFound();
-            }
+            await getObject(id);
             return Page();
         }
 
@@ -29,13 +19,8 @@ namespace Soft
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            await data.Update(MeasureViewFactory.Create(Item));
-
+            await updateObject();
+          
             return RedirectToPage("./Index");
         }
 

@@ -72,12 +72,12 @@ namespace HW4.Tests.Infra
                 var set = obj.addSorting(d);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.Quantity.MeasureData]).OrderByDescending(Param_0 => Convert(Param_0.{sortOrder}, Object)"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.MeasureData]).OrderByDescending(Param_0 => Convert(Param_0.{sortOrder}, Object)"));
                 obj.SortOrder = sortOrder;
                 set = obj.addSorting(d);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.Quantity.MeasureData]).OrderBy(Param_0 => Convert(Param_0.{sortOrder}, Object))"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.MeasureData]).OrderBy(Param_0 => Convert(Param_0.{sortOrder}, Object))"));
 
 
             }
@@ -199,12 +199,12 @@ namespace HW4.Tests.Infra
                 var set = obj.addOrderBy(d,e);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.Quantity.MeasureData]).OrderByDescending({expected})"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.MeasureData]).OrderByDescending({expected})"));
                 obj.SortOrder = GetRandom.String();
                 set = obj.addOrderBy(d, e);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.Quantity.MeasureData]).OrderBy({expected})"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.MeasureData]).OrderBy({expected})"));
 
             }
 
@@ -216,8 +216,8 @@ namespace HW4.Tests.Infra
             test(data, x => x.Id, "x => x.Id");
             test(data, x => x.Name, "x => x.Name");
             test(data, x => x.Code, "x => x.Code");
-            test(data, x => x.ValidFrom, "x => Convert(x.ValidFrom, object)");
-            test(data, x => x.ValidTo, "x => Convert(x.ValidTo, object)");
+            test(data, x => x.ValidFrom, "x => Convert(x.ValidFrom, Object)");
+            test(data, x => x.ValidTo, "x => Convert(x.ValidTo, Object)");
 
 
 
