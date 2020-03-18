@@ -5,7 +5,7 @@ using System;
 namespace Tests
 {
     [TestClass]
-    public class PeriodDataTests : AbstractClassTest<PeriodData, object>
+    public class PeriodDataTests : AbstractClassTests<PeriodData, object>
     {
         private class testClass : PeriodData { }
         [TestInitialize]

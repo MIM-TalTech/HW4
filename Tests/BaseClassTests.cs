@@ -1,12 +1,16 @@
 ﻿using HW4;
+using HW4.Aids;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [TestClass]
-public abstract class BaseTest<TClass, TBaseClass>
+public abstract class BaseClassTests<TClass, TBaseClass> : BaseTests
 {
     protected TClass obj;
-    protected Type type;
+   
+  
 
     [TestInitialize]
     public virtual void TestInitialize()
@@ -15,6 +19,10 @@ public abstract class BaseTest<TClass, TBaseClass>
         type = typeof(TClass);
 
     }
+    
+  
+    
+    
     [TestMethod]
     public void IsInheritedTest()
     {

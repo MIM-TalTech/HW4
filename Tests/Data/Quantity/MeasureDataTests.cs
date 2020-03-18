@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests
 {
     [TestClass]
-    public class MeasureDataTests : SealedClassTest<MeasureData, DefinedEntityData>
+    public class MeasureDataTests : SealedClassTests<MeasureData, DefinedEntityData>
     {
         
     }

@@ -1,14 +1,15 @@
 ﻿using HW4.Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Facade;
 
-namespace Tests
+namespace Tests.Facade.Common
 {
     [TestClass]
 
-    public class DefinedDataTests : AbstractClassTest<DefinedEntityData, NamedEntityData>
+    public class DefinedViewTests : AbstractClassTests<DefinedView, NamedView>
     {
-        private class testClass : DefinedEntityData { }
+        private class testClass : DefinedView { }
         [TestInitialize]
         public override void TestInitialize()
         {

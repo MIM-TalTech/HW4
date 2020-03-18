@@ -10,13 +10,10 @@ using System.Text;
 namespace HW4.Infra
 {
     public abstract class PaginatedRepository<TDomain, TData> : FilteredRepository<TDomain, TData>, IPaging
-         where TData : UniqueEntityData, new()
+         where TData : PeriodData, new()
         where TDomain : Entity<TData>, new()
     {
-        protected PaginatedRepository(DbContext c, DbSet<TData> s) : base(c, s)
-        {
-          
-        }
+        protected PaginatedRepository(DbContext c, DbSet<TData> s) : base(c, s) {}
 
         public bool HasNextPage => PageIndex < TotalPages;
         public bool HasPreviousPage => PageIndex > 1;
@@ -36,13 +33,14 @@ namespace HW4.Infra
 
         private IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
         {
+            if (PageIndex < 1) return query;
             var q = query.Skip(
                 (PageIndex - 1) * PageSize)
                 .Take(PageSize);
             return q;
         }
 
-         int getTotalPages(int pageSize)
+         internal int getTotalPages(int pageSize)
         {
             var count = getItemsCount();
             var pages = countTotalPages(count, pageSize);

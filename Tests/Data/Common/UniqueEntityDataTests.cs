@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests
 {
     [TestClass]
-    public class UniqueEntityDataTests : AbstractClassTest<UniqueEntityData, PeriodData>
+    public class UniqueEntityDataTests : AbstractClassTests<UniqueEntityData, PeriodData>
     {
         private class testClass : UniqueEntityData { }
         [TestInitialize]

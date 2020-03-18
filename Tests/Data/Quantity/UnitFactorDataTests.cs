@@ -7,7 +7,7 @@ using System;
 namespace Tests
 {
     [TestClass]
-    public class UnitFactorDataTests : SealedClassTest<UnitFactorData, PeriodData>
+    public class UnitFactorDataTests : SealedClassTests<UnitFactorData, PeriodData>
     {
 
         [TestMethod]

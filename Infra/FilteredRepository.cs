@@ -12,10 +12,11 @@ using System.Text;
 namespace HW4.Infra
 {
     public abstract class FilteredRepository<TDomain, TData> : SortedRepository<TDomain, TData>, ISearching
-         where TData : UniqueEntityData, new()
+         where TData : PeriodData, new()
         where TDomain : Entity<TData>, new()
     {
-         Expression predicate = null;
+        public string SearchString { get; set; }
+       
 
         protected FilteredRepository(DbContext c, DbSet<TData> s) : base(c, s)
         {
@@ -41,7 +42,8 @@ namespace HW4.Infra
         internal Expression<Func<TData, bool>> createWhereExpression()
         {
             var param = Expression.Parameter(typeof(TData), "s");
-            foreach(var p in typeof(TData).GetProperties())
+            Expression predicate = null;
+            foreach (var p in typeof(TData).GetProperties())
             {
                 Expression body = Expression.Property(param, p);
                 if (p.PropertyType != typeof(string))
@@ -57,6 +59,6 @@ namespace HW4.Infra
         }
         
 
-        public string SearchString { get; set; }
+        
     }
 }

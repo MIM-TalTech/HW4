@@ -3,7 +3,7 @@
   <Class Name="Infra.MeasuresRepository">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Quantity\MeasuresRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -19,7 +19,7 @@
   <Class Name="HW4.Infra.FilteredRepository&lt;TDomain, TData&gt;">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAAAAAAAgAAAAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAABAAAAAAAEgAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>FilteredRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

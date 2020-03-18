@@ -12,7 +12,7 @@ using System.Text;
 namespace HW4.Infra
 {
     public abstract class SortedRepository<TDomain, TData> : BaseRepository<TDomain, TData>, ISorting
-         where TData : UniqueEntityData, new()
+         where TData : PeriodData, new()
         where TDomain : Entity<TData>, new()
     {
         protected SortedRepository(DbContext c, DbSet<TData> s) : base(c, s)
@@ -54,7 +54,7 @@ namespace HW4.Infra
 
         internal Expression<Func<TData, object>> lambdaExpression(PropertyInfo p)
         {
-            var param = Expression.Parameter(typeof(TData));
+            var param = Expression.Parameter(typeof(TData), "x");
             var property = Expression.Property(param, p);
             var body = Expression.Convert(property, typeof(object));
             return Expression.Lambda<Func<TData, object>>(body, param);
