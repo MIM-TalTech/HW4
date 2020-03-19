@@ -1,8 +1,7 @@
 ﻿
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Pages;
-using HW4.Facade.Quantity;
+using HW4.Domain.Common;
 using HW4.Domain.Quantity;
 using HW4.Pages.Quantity;
 

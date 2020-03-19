@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Facade;
 using HW4.Infra.Quantity;
 
 namespace Soft.Data

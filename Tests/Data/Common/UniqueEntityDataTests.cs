@@ -1,7 +1,7 @@
 ﻿using HW4.Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests
+namespace HW4.Tests.Data.Common
 {
     [TestClass]
     public class UniqueEntityDataTests : AbstractClassTests<UniqueEntityData, PeriodData>

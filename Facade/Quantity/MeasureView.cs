@@ -1,14 +1,9 @@
-﻿using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using HW4.Facade.Common;
 
-namespace Facade
+namespace HW4.Facade.Quantity
 {
     public sealed class MeasureView : DefinedView
     {
-       
-
-
-
     }
+
 }

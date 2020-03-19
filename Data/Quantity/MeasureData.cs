@@ -1,7 +1,6 @@
 ﻿using HW4.Data.Common;
-using System;
 
-namespace HW4.Data
+namespace HW4.Data.Quantity
 {
     public sealed class MeasureData : DefinedEntityData
     {

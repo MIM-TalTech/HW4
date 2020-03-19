@@ -1,10 +1,8 @@
-﻿using HW4.Data;
-using HW4.Data.Common;
+﻿using HW4.Data.Common;
 using HW4.Data.Quantity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace Tests
+namespace HW4.Tests.Data.Quantity
 {
     [TestClass]
     public class UnitFactorDataTests : SealedClassTests<UnitFactorData, PeriodData>

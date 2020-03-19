@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HW4.Data.Common
+﻿namespace HW4.Data.Common
 {
     public abstract class UniqueEntityData : PeriodData
     {

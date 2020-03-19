@@ -1,13 +1,7 @@
-﻿
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Facade;
-using Soft.Data;
+using HW4.Domain.Common;
 using HW4.Domain.Quantity;
-using HW4.Facade.Quantity;
 using HW4.Pages.Quantity;
 
 

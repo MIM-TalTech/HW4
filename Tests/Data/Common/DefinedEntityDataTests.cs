@@ -1,8 +1,7 @@
 ﻿using HW4.Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace Tests
+namespace HW4.Tests.Data.Common
 {
     [TestClass]
 

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Facade;
-using HW4.Data;
+﻿using HW4.Data;
+using HW4.Data.Quantity;
+using HW4.Domain.Common;
 using HW4.Domain.Quantity;
 using HW4.Facade.Quantity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -10,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace HW4.Tests.Facade.Quantity
 {
     [TestClass]
-    public class UnitViewFactoryTest : BaseTests
+    public class UnitViewFactoryTests : BaseTests
 
     {
     [TestInitialize]

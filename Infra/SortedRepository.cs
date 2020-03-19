@@ -1,13 +1,10 @@
 ﻿using HW4.Data.Common;
-using HW4.Domain;
-using HW4.Domain.Quantity;
+using HW4.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
 
 namespace HW4.Infra
 {

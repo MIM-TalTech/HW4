@@ -1,17 +1,17 @@
 ﻿using HW4.Aids;
 using HW4.Data;
-using HW4.Domain.Quantity;
+using HW4.Domain.Common;
 using HW4.Infra;
 using HW4.Infra.Quantity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
+using HW4.Data.Quantity;
+using HW4.Domain.Quantity;
 
 namespace HW4.Tests.Infra
 {
@@ -72,12 +72,12 @@ namespace HW4.Tests.Infra
                 var set = obj.addSorting(d);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.MeasureData]).OrderByDescending(x => Convert(x.{sortOrder}, Object)"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.Quantity.MeasureData]).OrderByDescending(x => Convert(x.{sortOrder}, Object)"));
                 obj.SortOrder = sortOrder;
                 set = obj.addSorting(d);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.MeasureData]).OrderBy(x => Convert(x.{sortOrder}, Object))"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.Quantity.MeasureData]).OrderBy(x => Convert(x.{sortOrder}, Object))"));
 
 
             }
@@ -199,12 +199,12 @@ namespace HW4.Tests.Infra
                 var set = obj.addOrderBy(d,e);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.MeasureData]).OrderByDescending({expected})"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.Quantity.MeasureData]).OrderByDescending({expected})"));
                 obj.SortOrder = GetRandom.String();
                 set = obj.addOrderBy(d, e);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.MeasureData]).OrderBy({expected})"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"HW4.Data.Quantity.MeasureData]).OrderBy({expected})"));
 
             }
 

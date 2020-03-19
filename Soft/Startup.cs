@@ -7,8 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using HW4.Infra.Quantity;
 using Microsoft.AspNetCore.Identity;
+using HW4.Domain.Common;
 using HW4.Domain.Quantity;
-using Infra;
 
 namespace Soft
 {

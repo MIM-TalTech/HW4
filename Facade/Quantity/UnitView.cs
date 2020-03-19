@@ -1,13 +1,11 @@
-﻿using Facade;
-using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using HW4.Facade.Common;
 
 namespace HW4.Facade.Quantity
 {
-    public class UnitView : DefinedView
+    public sealed class UnitView : DefinedView
     {
         [Required]
         [DisplayName("Measure")]

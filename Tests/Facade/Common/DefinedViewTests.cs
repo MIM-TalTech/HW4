@@ -1,9 +1,7 @@
-﻿using HW4.Data.Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Facade;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using HW4.Facade.Common;
 
-namespace Tests.Facade.Common
+namespace HW4.Tests.Facade.Common
 {
     [TestClass]
 

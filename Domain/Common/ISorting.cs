@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HW4.Domain
+﻿namespace HW4.Domain.Common
 {
     public interface ISorting
     {

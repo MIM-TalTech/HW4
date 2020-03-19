@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Facade;
-using HW4.Data;
+﻿
+using HW4.Data.Quantity;
+using HW4.Domain.Common;
 using HW4.Domain.Quantity;
+using HW4.Facade.Common;
 using HW4.Facade.Quantity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tests;
 
 namespace HW4.Tests.Facade.Quantity
 {

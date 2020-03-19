@@ -1,8 +1,6 @@
 ﻿using HW4.Data.Quantity;
+using HW4.Domain.Common;
 using HW4.Domain.Quantity;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace HW4.Infra.Quantity
 {

@@ -1,4 +1,4 @@
-﻿namespace Facade
+﻿namespace HW4.Facade.Common
 {
     public abstract class DefinedView : NamedView
     {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using HW4.Data;
-using HW4.Data.Common;
-using HW4.Domain.Quantity;
+﻿using HW4.Data;
+using HW4.Data.Quantity;
+using HW4.Domain.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HW4.Tests.Domain.Common

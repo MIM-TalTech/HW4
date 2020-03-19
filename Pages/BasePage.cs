@@ -1,15 +1,11 @@
-﻿using Facade;
-using HW4.Aids;
-using HW4.Data;
-using HW4.Domain;
-using HW4.Facade.Quantity;
+﻿using HW4.Aids;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
+using HW4.Domain.Common;
 
 namespace HW4.Pages
 {

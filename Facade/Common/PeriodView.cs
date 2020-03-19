@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Facade
+namespace HW4.Facade.Common
 {
     public abstract class PeriodView
     {

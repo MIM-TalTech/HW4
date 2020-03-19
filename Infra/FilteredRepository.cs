@@ -1,19 +1,16 @@
-﻿using HW4.Data;
-using HW4.Data.Common;
-using HW4.Domain;
-using HW4.Domain.Quantity;
+﻿using HW4.Data.Common;
+using HW4.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace HW4.Infra
 {
     public abstract class FilteredRepository<TDomain, TData> : SortedRepository<TDomain, TData>, ISearching
-         where TData : PeriodData, new()
         where TDomain : Entity<TData>, new()
+         where TData : PeriodData, new()
+       
     {
         public string SearchString { get; set; }
        

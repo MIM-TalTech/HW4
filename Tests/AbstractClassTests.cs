@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using HW4.Tests;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [TestClass]
 public abstract class AbstractClassTests<TClass, TBaseClass> : BaseClassTests<TClass, TBaseClass>

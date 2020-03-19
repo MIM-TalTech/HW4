@@ -1,9 +1,6 @@
 ﻿using HW4.Data.Common;
-using HW4.Domain.Quantity;
+using HW4.Domain.Common;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace HW4.Infra

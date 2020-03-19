@@ -1,8 +1,8 @@
-﻿using Facade;
-using HW4.Data.Common;
+﻿
+using HW4.Facade.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests.Facade.Common
+namespace HW4.Tests.Facade.Common
 {
     [TestClass]
     public class PeriodViewTests : AbstractClassTests<PeriodView, object>

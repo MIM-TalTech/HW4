@@ -1,14 +1,11 @@
 ﻿using HW4.Data;
-using HW4.Domain.Quantity;
-using HW4.Infra;
-using HW4.Infra.Quantity;
+using HW4.Domain.Common;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using HW4.Data.Quantity;
+using HW4.Domain.Quantity;
 
-namespace Infra
+namespace HW4.Infra.Quantity
 {
     public class MeasuresRepository: UniqueEntityRepository<Measure, MeasureData>, IMeasuresRepository
     {

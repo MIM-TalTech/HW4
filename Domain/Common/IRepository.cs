@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace HW4.Domain.Quantity
+﻿namespace HW4.Domain.Common
 {
-    public interface IRepository<T> : ICrudMethods<T>, IPaging, ISorting, ISearching
+    public interface IRepository<T> : ICrudMethods<T>, ISorting, ISearching, IPaging
     {
        
         
