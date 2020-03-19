@@ -11,11 +11,11 @@ namespace HW4.Pages.Quantity
     {
 
         protected internal UnitsPage(IUnitsRepository r, IMeasuresRepository m) : base(r)
-    {
+        {
 
         PageTitle = "Units";
         Measures = createMeasures(m);
-    }
+        }
 
         private static IEnumerable<SelectListItem> createMeasures(IMeasuresRepository r)
         {
@@ -30,26 +30,31 @@ namespace HW4.Pages.Quantity
 
         public IEnumerable<SelectListItem> Measures { get; }
         public override string ItemId => Item.Id;
+        protected internal override string getPageSubtitle()
+        {
+            if (FixedValue is null) return base.getPageSubtitle();
+            return $"For {GetMeasureName(FixedValue)}";
+        }
 
-    protected internal override Unit toObject(UnitView view)
-    {
+        protected internal override Unit toObject(UnitView view)
+        {
         return UnitViewFactory.Create(view);
-    }
+        }
 
     protected internal override UnitView toView(Unit o)
-    {
+        {
         return UnitViewFactory.Create(o);
-    }
+        }
 
 
     public string GetMeasureName(string measureId)
-    {
+        {
         foreach(var m in Measures)
             if (m.Value == measureId)
                 return m.Text;
         return "Unspecified";
 
-    }
+        }
 
 
 

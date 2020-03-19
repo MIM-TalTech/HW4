@@ -5,10 +5,11 @@
 }
 
 
-<p>
-    <h1>@ViewData["Title"]</h1>
-    @RenderSection("Create")
-</p>
+    <p>
+        <h1>@ViewData["Title"]</h1>
+        <h4>@Model.PageSubTitle</h4>
+        @RenderSection("Create")
+    </p>
 <form asp-page="./Index" method="get">
     <div class="form-inline">
         <p>
@@ -32,39 +33,39 @@
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
-<div class="form-inline col-md-6">
+<div class="form-inline">
 
     <a asp-page="./Index"
-       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-sortOrder="@Model.SortOrder"
        asp-route-pageIndex="1"
-       asp-route-currentFilter="@Model.CurrentFilter"
-       class="btn btn-link @prevDisabled">
+       asp-route-currentFilter="@Model.SearchString"
+       class="btn btn-primary @prevDisabled">
         First
     </a>
     &nbsp;
     <a asp-page="./Index"
-       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-sortOrder="@Model.SortOrder"
        asp-route-pageIndex="@(Model.PageIndex - 1)"
-       asp-route-currentFilter="@Model.CurrentFilter"
-       class="btn btn-link @prevDisabled">
+       asp-route-currentFilter="@Model.SearchString"
+       class="btn btn-primary @prevDisabled">
         Previous
     </a>
     &nbsp;
     Page @Model.PageIndex of @Model.TotalPages
     &nbsp;
     <a asp-page="./Index"
-       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-sortOrder="@Model.SortOrder"
        asp-route-pageIndex="@(Model.PageIndex + 1)"
-       asp-route-currentFilter="@Model.CurrentFilter"
-       class="btn btn-link @nextDisabled">
+       asp-route-currentFilter="@Model.SearchString"
+       class="btn btn-primary @nextDisabled">
         Next
     </a>
     &nbsp;
     <a asp-page="./Index"
-       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-sortOrder="@Model.SortOrder"
        asp-route-pageIndex="@(Model.TotalPages)"
-       asp-route-currentFilter="@Model.CurrentFilter"
-       class="btn btn-link @nextDisabled">
+       asp-route-currentFilter="@Model.SearchString"
+       class="btn btn-primary @nextDisabled">
         Last
     </a>
 

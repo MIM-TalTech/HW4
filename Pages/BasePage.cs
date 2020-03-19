@@ -10,7 +10,7 @@ using HW4.Domain.Common;
 namespace HW4.Pages
 {
     public abstract class BasePage<TRepository, TDomain, TView, TData> : PageModel 
-        where TRepository : ICrudMethods<TDomain>, ISorting, ISearching, IPaging
+        where TRepository : ICrudMethods<TDomain>, ISorting, IFiltering, IPaging
     {
 
         private TRepository data;
@@ -25,15 +25,24 @@ namespace HW4.Pages
         public TView Item { get; set; }
         public IList<TView> Items { get; set; }
         public string PageTitle { get; set; }
-        public string PageSubTitle { get; set; }
-        public string CurrentSort { get; set; }
-        public string CurrentFilter { get; set; }
+        public string PageSubTitle => getPageSubtitle();
+
+        protected internal virtual string getPageSubtitle()
+        {
+            return string.Empty;
+        }
+
+        public string FixedFilter { get => data.FixedFilter; set => data.FixedFilter = value; }
+
+        public string FixedValue { get => data.FixedValue; set => data.FixedValue = value; }
+        public string SortOrder { get => data.SortOrder; set => data.SortOrder = value; }
+       
         public int PageIndex { get => data.PageIndex; set => data.PageIndex = value; }
         public int TotalPages { get; set; } = 10;
         public abstract string ItemId { get; }
-        public string SearchString { get; set; }
-        public bool HasPreviousPage { get; set; }
-        public bool HasNextPage { get; set; }
+        public string SearchString { get => data.SearchString; set => data.SearchString = value; }
+        public bool HasPreviousPage => data.HasPreviousPage;
+        public bool HasNextPage => data.HasNextPage;
 
         protected internal async Task<bool> addObject()
         {
@@ -89,17 +98,31 @@ namespace HW4.Pages
 
             var name = GetMember.Name(e);
             string sortOrder;
-            if (string.IsNullOrEmpty(CurrentSort)) sortOrder = name;
-            else if (!CurrentSort.StartsWith(name)) sortOrder = name;
-            else if (CurrentSort.EndsWith("_desc")) sortOrder = name;
+            if (string.IsNullOrEmpty(SortOrder)) sortOrder = name;
+            else if (!SortOrder.StartsWith(name)) sortOrder = name;
+            else if (SortOrder.EndsWith("_desc")) sortOrder = name;
             else sortOrder = name + "_desc";
-            return $"{page}?sortOrder={sortOrder}&currentFilter={CurrentFilter}";
+            return $"{page}?sortOrder={sortOrder}&currentFilter={SearchString}";
 
         }
-        protected internal async Task getList(string sortOrder, string currentFilter, string searchString, int? pageIndex)
+        protected internal async Task getList(string sortOrder, string currentFilter, string searchString, int? pageIndex, 
+            string fixedFilter, string fixedValue)
         {
-            sortOrder = string.IsNullOrEmpty(sortOrder) ? "Name_desc" : sortOrder;
-            CurrentSort = sortOrder;
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
+            SortOrder = sortOrder;
+            SearchString = getSearchString(currentFilter, searchString, ref pageIndex);
+            PageIndex = pageIndex ?? 1;
+            Items = await getList();
+           
+         
+        }
+
+
+
+        private string getSearchString(string currentFilter, string searchString, ref int? pageIndex)
+        {
+
             if (searchString != null)
             {
                 pageIndex = 1;
@@ -108,18 +131,20 @@ namespace HW4.Pages
             {
                 searchString = currentFilter;
             }
-            CurrentFilter = searchString;
-            data.SortOrder = sortOrder;
-            SearchString = CurrentFilter;
-            data.SearchString = SearchString;
 
-            PageIndex = pageIndex ?? 1;
+            return searchString;
+        }
+
+        internal async Task<List<TView>> getList()
+        {
             var l = await data.Get();
-            Items = new List<TView>();
+            var list  = new List<TView>();
             foreach (var e in l)
             {
-                Items.Add(toView(e));
+                list.Add(toView(e));
             }
+
+            return list;
         }
     }
 }

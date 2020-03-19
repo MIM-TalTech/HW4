@@ -29,7 +29,8 @@ new Link(Html.DisplayNameFor(m => m.Item.MeasureId), Model.GetSortString(m => m.
                     @Html.TableRowFor(
                    page, Item.Id,
                    Html.DisplayFor(modelItem => Item.Id),
-                   Html.Raw(Model.GetMeasureName(Item.MeasureId)),
+                   Html.Raw(Model.GetMeasureName(Item.MeasureId)), 
+                        Html.DisplayFor(modelItem => Item.MeasureId),
                    Html.DisplayFor(modelItem => Item.Name),
                    Html.DisplayFor(modelItem => Item.Code),
                    Html.DisplayFor(modelItem => Item.Definition),

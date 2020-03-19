@@ -28,11 +28,11 @@
       <FileName>Common\ISorting.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="HW4.Domain.ISearching">
+  <Interface Name="HW4.Domain.IFiltering">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
-      <FileName>Common\ISearching.cs</FileName>
+      <FileName>Common\IFiltering.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="HW4.Domain.ICrudMethods&lt;T&gt;">
