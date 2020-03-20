@@ -10,21 +10,27 @@ namespace Soft.Areas.Quantity.Pages.Units
     public class CreateModel : UnitsPage
     {
        public CreateModel(IUnitsRepository r, IMeasuresRepository m) : base(r, m) { }
-      
 
 
-       public IActionResult OnGet()
+
+
+        public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
+            FixedValue = fixedValue;
+            FixedFilter = fixedFilter;
             return Page();
         }
 
-   
 
-        
-        public async Task<IActionResult> OnPostAsync()
+
+
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
+
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             if (!await addObject()) return Page();
-            return RedirectToPage("./Index");
+            return RedirectToPage($"/Quantity/Units/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}");
         }
     }
 }

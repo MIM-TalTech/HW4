@@ -9,11 +9,6 @@ namespace Soft.Areas.Quantity.Pages.Measures
     {
        public IndexModel(IMeasuresRepository r ) : base(r) { }
        
-
-      
-
-        
-
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex, string fixedFilter, string fixedValue)
         {

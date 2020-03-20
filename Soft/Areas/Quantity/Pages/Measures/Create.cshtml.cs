@@ -14,18 +14,23 @@ namespace Soft.Areas.Quantity.Pages.Measures
 
      
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
+            FixedValue = fixedValue;
+            FixedFilter = fixedFilter;
             return Page();
         }
 
    
 
         
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
+
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             if (!await addObject()) return Page();
-            return RedirectToPage("./Index");
+            return RedirectToPage($"/Quantity/Measures/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}");
         }
     }
 }

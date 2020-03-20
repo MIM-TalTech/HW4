@@ -38,7 +38,8 @@ namespace HW4.Pages.Extensions
         return new HtmlContentBuilder(s);
     }
 
-    private static List<object> htmlString<TModel, TResult>(IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression, string value)
+    private static List<object> htmlString<TModel, TResult>(IHtmlHelper<TModel> htmlHelper, 
+        Expression<Func<TModel, TResult>> expression, string value)
     {
         return new List<object>
         {
@@ -46,9 +47,9 @@ namespace HW4.Pages.Extensions
             htmlHelper.DisplayNameFor(expression),
             new HtmlString("</dt>"),
             new HtmlString("<dd class=\"col-sm-10\">"),
-            htmlHelper.Raw(expression),
+            htmlHelper.Raw(value),
             new HtmlString("</dd>")
         };
-        }
+    }
 }
 }
