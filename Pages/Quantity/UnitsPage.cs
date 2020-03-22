@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HW4.Pages.Quantity
 {
-    public class UnitsPage : BasePage<IUnitsRepository, Unit, UnitView, UnitData>
+    public abstract class UnitsPage : BasePage<IUnitsRepository, Unit, UnitView, UnitData>
     {
 
         protected internal UnitsPage(IUnitsRepository r, IMeasuresRepository m) : base(r)
@@ -29,7 +29,11 @@ namespace HW4.Pages.Quantity
         }
 
         public IEnumerable<SelectListItem> Measures { get; }
-        public override string ItemId => Item.Id;
+        public override string ItemId => Item?.Id ?? string.Empty;
+        protected internal override string getPageUrl() => "/Quantity/Units";
+        
+        
+
         protected internal override string getPageSubtitle()
         {
             if (FixedValue is null) return base.getPageSubtitle();

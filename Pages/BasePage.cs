@@ -26,6 +26,18 @@ namespace HW4.Pages
         public IList<TView> Items { get; set; }
         public string PageTitle { get; set; }
         public string PageSubTitle => getPageSubtitle();
+        public string IndexUrl => getIndexUrl();
+
+        protected internal string getIndexUrl()
+        {
+            return $"{PageUrl}/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}";
+        }
+
+        public string PageUrl => getPageUrl();
+
+        protected internal abstract string getPageUrl();
+        
+        
 
         protected internal virtual string getPageSubtitle()
         {
@@ -44,8 +56,10 @@ namespace HW4.Pages
         public bool HasPreviousPage => data.HasPreviousPage;
         public bool HasNextPage => data.HasNextPage;
 
-        protected internal async Task<bool> addObject()
+        protected internal async Task<bool> addObject(string fixedFilter, string fixedValue)
         {
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             // TODO
             // To protect from overposting attacks, please enable the specific properties you want to bind to, for
             // more details see https://aka.ms/RazorPagesCRUD.
@@ -68,17 +82,20 @@ namespace HW4.Pages
         protected internal abstract TDomain toObject(TView view);
       
 
-        protected internal async Task updateObject()
+        protected internal async Task updateObject(string fixedFilter, string fixedValue)
         {
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             // TODO
             // To protect from overposting attacks, please enable the specific properties you want to bind to, for
             // more details see https://aka.ms/RazorPagesCRUD.
             await data.Update(toObject(Item));
 
         }
-        protected internal async Task getObject(string id)
+        protected internal async Task getObject(string id, string fixedFilter, string fixedValue)
         {
-
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             var o = await data.Get(id);
             Item = toView(o);
 
@@ -88,8 +105,11 @@ namespace HW4.Pages
         protected internal abstract TView toView(TDomain o);
        
 
-        protected internal async Task deleteObject(string id)
+        protected internal async Task deleteObject(string id, string fixedFilter, string fixedValue)
+
         {
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             await data.Delete(id);
         }
 

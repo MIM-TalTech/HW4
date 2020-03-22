@@ -1,16 +1,11 @@
-﻿
-using HW4.Data;
-using HW4.Data.Quantity;
-using HW4.Domain.Common;
+﻿using HW4.Data.Quantity;
 using HW4.Domain.Quantity;
-using HW4.Facade.Common;
 using HW4.Facade.Quantity;
-using HW4.Pages;
 
 
-namespace Pages
+namespace HW4.Pages.Quantity
 {
-    public class MeasuresPage : BasePage<IMeasuresRepository, Measure, MeasureView, MeasureData>
+    public abstract class MeasuresPage : BasePage<IMeasuresRepository, Measure, MeasureView, MeasureData>
     {
 
         protected internal MeasuresPage(IMeasuresRepository r) : base(r)
@@ -18,7 +13,13 @@ namespace Pages
     
             PageTitle = "Measures";
         }
-        public override string ItemId => Item.Id;
+
+        protected internal override string getPageUrl() => "/Quantity/Measures";
+
+
+
+
+        public override string ItemId => Item?.Id ?? string.Empty;
 
         protected internal override Measure toObject(MeasureView view)
         {

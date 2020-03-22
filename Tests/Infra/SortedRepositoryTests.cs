@@ -1,6 +1,4 @@
 ﻿using HW4.Aids;
-using HW4.Data;
-using HW4.Domain.Common;
 using HW4.Infra;
 using HW4.Infra.Quantity;
 using Microsoft.EntityFrameworkCore;

@@ -11,9 +11,7 @@ namespace Soft.Areas.Quantity.Pages.Units
         public EditModel(IUnitsRepository r, IMeasuresRepository m) : base(r, m) { }
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            FixedFilter = fixedFilter;
-            FixedValue = fixedValue;
-            await getObject(id);
+            await getObject(id, fixedFilter, fixedValue);
             return Page();
         }
 
@@ -21,11 +19,8 @@ namespace Soft.Areas.Quantity.Pages.Units
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            FixedFilter = fixedFilter;
-            FixedValue = fixedValue;
-            await updateObject();
-
-            return RedirectToPage($"/Quantity/Units/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}");
+            await updateObject(fixedFilter, fixedValue);
+            return RedirectToPage(IndexUrl);
         }
     }
 }

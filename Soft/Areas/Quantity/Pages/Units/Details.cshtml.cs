@@ -13,9 +13,8 @@ namespace Soft.Areas.Quantity.Pages.Units
 
        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
        {
-           FixedFilter = fixedFilter;
-           FixedValue = fixedValue;
-           await getObject(id);
+        
+           await getObject(id, fixedFilter, fixedValue);
            return Page();
        }
     }

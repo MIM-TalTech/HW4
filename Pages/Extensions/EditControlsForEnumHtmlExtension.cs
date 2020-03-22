@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HW4.Pages.Extensions {
 
-    public static class EditControlsForEnumHtmlExtension {
+    public static class EditControlsForEnumHtml {
 
         public static IHtmlContent EditControlsForEnum<TModel, TResult>(
             this IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression) {
             
             var selectList = new SelectList(Enum.GetNames(typeof(TResult)));
             
-            var htmlStrings = EditControlsForEnumHtmlExtension.htmlStrings(htmlHelper, expression, selectList);
+            var htmlStrings = EditControlsForEnumHtml.htmlStrings(htmlHelper, expression, selectList);
 
             return new HtmlContentBuilder(htmlStrings);
         }
