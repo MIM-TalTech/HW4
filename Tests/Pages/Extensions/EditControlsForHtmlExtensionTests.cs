@@ -35,7 +35,7 @@ namespace HW4.Tests.Pages.Extensions
         public void HtmlStringTest()
         {
             var expected = new List<string> { "<div", "LabelFor", "EditorFor", "ValidationMessageFor", "</div>" };
-            var actual = EditControlsForHtmlExtension.htmlString(new htmlHelperMock<MeasureView>(), x => x.Name);
+            var actual = EditControlsForHtmlExtension.htmlString(new htmlHelperMock<MeasureView>(), x => x.ValidFrom);
             TestHtml.testHtmlString(actual, expected);
         }
 

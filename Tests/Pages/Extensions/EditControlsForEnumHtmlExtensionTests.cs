@@ -21,11 +21,11 @@ namespace HW4.Tests.Pages.Extensions
         [TestInitialize]
         public virtual void TestInitialize()
         {
-            type = typeof(EditControlsForHtmlExtension);
+            type = typeof(EditControlsForEnumHtmlExtension);
         }
 
         [TestMethod]
-        public void EditControlsForTest()
+        public void EditControlsForEnumTest()
         {
             Assert.Inconclusive();
         }
