@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using HW4.Data.Quantity;
 using HW4.Domain.Quantity;
 using HW4.Facade.Quantity;

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using HW4.Aids;
-using HW4.Data.Quantity;
+﻿using HW4.Data.Quantity;
 using HW4.Domain.Quantity;
 using HW4.Facade.Quantity;
 using HW4.Pages;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HW4.Tests.Pages

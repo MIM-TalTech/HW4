@@ -1,7 +1,5 @@
-﻿using HW4;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using HW4.Tests;
 
 
 namespace HW4.Tests

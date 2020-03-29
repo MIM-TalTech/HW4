@@ -1,6 +1,4 @@
-﻿using HW4.Data;
-using HW4.Domain.Common;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using HW4.Data.Quantity;
 using HW4.Domain.Quantity;

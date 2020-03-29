@@ -1,5 +1,4 @@
-﻿using HW4.Data;
-using HW4.Data.Quantity;
+﻿using HW4.Data.Quantity;
 using HW4.Domain.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

@@ -1,5 +1,4 @@
-﻿using HW4.Data;
-using HW4.Data.Quantity;
+﻿using HW4.Data.Quantity;
 using Microsoft.EntityFrameworkCore;
 
 namespace HW4.Infra.Quantity

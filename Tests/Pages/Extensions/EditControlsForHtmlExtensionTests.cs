@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq.Expressions;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using HW4.Aids;
+﻿using System.Collections.Generic;
 using HW4.Facade.Quantity;
 using HW4.Pages.Extensions;
 using Microsoft.AspNetCore.Html;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HW4.Tests.Pages.Extensions

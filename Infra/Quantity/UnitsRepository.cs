@@ -1,5 +1,4 @@
 ﻿using HW4.Data.Quantity;
-using HW4.Domain.Common;
 using HW4.Domain.Quantity;
 
 namespace HW4.Infra.Quantity
