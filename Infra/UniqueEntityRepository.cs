@@ -19,5 +19,10 @@ namespace HW4.Infra
         {
             return await dbSet.FirstOrDefaultAsync(m => m.Id == id);
         }
+
+        protected override string getId(TDomain entity)
+        {
+            return entity?.Data?.Id;
+        }
     }
 }

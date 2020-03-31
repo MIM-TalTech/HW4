@@ -1,4 +1,5 @@
-﻿using HW4.Data.Common;
+﻿using System;
+using HW4.Data.Common;
 using HW4.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -47,24 +48,20 @@ namespace HW4.Infra
 
         public async Task Update(TDomain obj)
         {
-            
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                //  if (!MeasureViewExists(MeasureView.Id))
-                //  {
-                //     return NotFound();
-                //  }
-                // else
-                {
-                    throw;
-                    // }
-                }
-            }
+            if (obj is null) return;
+            var v = await dbSet.FindAsync(getId(obj));
+            if (v is null) return;
+            dbSet.Remove(v);
+            dbSet.Add(obj.Data);
+            await db.SaveChangesAsync();
+
+
         }
+
+        protected abstract string getId(TDomain entity);
+        
+           
+        
 
         public async Task Delete(string id)
         {

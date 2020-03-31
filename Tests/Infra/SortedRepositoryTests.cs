@@ -24,10 +24,15 @@ namespace HW4.Tests.Infra
 
             }
 
-            protected async override Task<MeasureData> getData(string id)
+            protected override async Task<MeasureData> getData(string id)
             {
                 await Task.CompletedTask;
                 return new MeasureData();
+            }
+
+            protected override string getId(Measure entity)
+            {
+                return entity?.Data?.Id;
             }
 
             protected internal override Measure toDomainObject(MeasureData d)
