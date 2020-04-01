@@ -29,7 +29,7 @@ namespace HW4.Infra
             return query;
         }
 
-        private IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
+        internal IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
         {
             if (PageIndex < 1) return query;
             var q = query.Skip(
