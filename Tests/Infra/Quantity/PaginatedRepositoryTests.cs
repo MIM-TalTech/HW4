@@ -42,7 +42,7 @@ namespace HW4.Tests.Infra.Quantity
             var options = new DbContextOptionsBuilder<QuantityDbContext>().UseInMemoryDatabase("TestDb").Options;
             var c = new QuantityDbContext(options);
             obj = new testClass(c, c.Measures);
-            count = GetRandom.UInt8(10, 30);
+            count = GetRandom.UInt8(20, 40);
             foreach (var p in c.Measures)
             {
                 c.Entry(p).State = EntityState.Deleted;
@@ -64,6 +64,7 @@ namespace HW4.Tests.Infra.Quantity
             }
 
           testNextPage(0, true);
+          testNextPage(1, true);
           testNextPage(GetRandom.Int32(1, obj.TotalPages-1), true);
           testNextPage(obj.TotalPages, false);
 
@@ -79,7 +80,9 @@ namespace HW4.Tests.Infra.Quantity
                 Assert.AreEqual(expected, actual);
             }
             testPreviousPage(0, false);
-            testPreviousPage(GetRandom.Int32(1, obj.TotalPages-1), true);
+            testPreviousPage(1, false);
+            testPreviousPage(2, true);
+            testPreviousPage(GetRandom.Int32(2, obj.TotalPages), true);
             testPreviousPage(obj.TotalPages-1, true);
         }
 
