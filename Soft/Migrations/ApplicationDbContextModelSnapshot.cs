@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Soft.Data;
 
 namespace Soft.Migrations
@@ -18,7 +19,7 @@ namespace Soft.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("HW4.Data.MeasureData", b =>
+            modelBuilder.Entity("HW4.Data.Quantity.MeasureData", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -41,6 +42,28 @@ namespace Soft.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Measures");
+                });
+
+            modelBuilder.Entity("HW4.Data.Quantity.MeasureTermData", b =>
+                {
+                    b.Property<string>("MasterId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TermId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Power")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MasterId", "TermId");
+
+                    b.ToTable("MeasureTerms");
                 });
 
             modelBuilder.Entity("HW4.Data.Quantity.SystemOfUnitsData", b =>
@@ -116,6 +139,28 @@ namespace Soft.Migrations
                     b.HasKey("UnitId", "SystemOfUnitsId");
 
                     b.ToTable("UnitFactors");
+                });
+
+            modelBuilder.Entity("HW4.Data.Quantity.UnitTermData", b =>
+                {
+                    b.Property<string>("MasterId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TermId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Power")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ValidFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ValidTo")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MasterId", "TermId");
+
+                    b.ToTable("UnitTerms");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

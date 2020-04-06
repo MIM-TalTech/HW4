@@ -32,10 +32,8 @@ namespace HW4.Infra
         {
             if (id is null) return new TDomain();
             var d = await getData(id);
-            var obj = new TDomain
-            {
-                Data = d
-            };
+            var obj = toDomainObject(d);
+            
             return obj;
         }
         protected abstract Task<TData> getData(string id);
@@ -49,7 +47,7 @@ namespace HW4.Infra
         public async Task Update(TDomain obj)
         {
             if (obj is null) return;
-            var v = await dbSet.FindAsync(getId(obj));
+            var v = await getData(getId(obj));
             if (v is null) return;
             dbSet.Remove(v);
             dbSet.Add(obj.Data);
@@ -65,7 +63,8 @@ namespace HW4.Infra
 
         public async Task Delete(string id)
         {
-            var d = await dbSet.FindAsync(id);
+            if (id is null) return;
+            var d = await getData(id);
 
             if (d is null) return;
 

@@ -11,49 +11,53 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace HW4.Tests.Infra.Quantity
 {
     [TestClass]
-    public class MeasuresRepositoryTests : RepositoryTests<MeasuresRepository, Measure, MeasureData>
+    public class SystemsOfUnitsRepositoryTests : RepositoryTests<SystemsOfUnitsRepository, SystemOfUnits, SystemOfUnitsData>
     {
-       
+
         [TestInitialize]
         public override void TestInitialize()
         {
-           
+
             var options = new DbContextOptionsBuilder<QuantityDbContext>().UseInMemoryDatabase("TestDb").Options;
             db = new QuantityDbContext(options);
-            dbSet = ((QuantityDbContext) db).Measures;
-            obj = new MeasuresRepository((QuantityDbContext)db);
+            dbSet = ((QuantityDbContext)db).SystemsOfUnits;
+            obj = new SystemsOfUnitsRepository((QuantityDbContext)db);
             count = GetRandom.UInt8(20, 40);
-          
+
             base.TestInitialize();
 
         }
 
-        
 
-      
-        
+
+
+
 
 
         protected override Type getBaseType()
         {
-           
-            return typeof(UniqueEntityRepository<Measure, MeasureData>);
+
+            return typeof(UniqueEntityRepository<SystemOfUnits, SystemOfUnitsData>);
         }
 
-        
 
-        protected override string getId(MeasureData d)
+
+        protected override string getId(SystemOfUnitsData d)
         {
             return d.Id;
         }
 
-        protected override Measure getObject(MeasureData d)
+        protected override SystemOfUnits getObject(SystemOfUnitsData d)
         {
-           return new Measure(d);
+            return new SystemOfUnits(d);
         }
 
-        protected override void setId(MeasureData d, string id) => d.Id = id;
+        protected override void setId(SystemOfUnitsData d, string id) => d.Id = id;
 
     }
-    
+
 }
+
+    
+
+

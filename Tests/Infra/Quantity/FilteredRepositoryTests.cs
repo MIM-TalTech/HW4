@@ -96,7 +96,7 @@ namespace HW4.Tests.Infra.Quantity
             var idx = GetRandom.Int32(0, properties.Length);
             var p = properties[idx];
             obj.FixedFilter = p.Name;
-            var fixedValue = "ABCDEFGH";
+            var fixedValue = "HW4DEFGH";
             obj.FixedValue = fixedValue;
             var e = obj.createFixedWhereExpression();
             Assert.IsNotNull(e);

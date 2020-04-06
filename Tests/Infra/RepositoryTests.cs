@@ -20,8 +20,11 @@ namespace HW4.Tests.Infra
     where TObject : Entity<TData>
     where TData : PeriodData, new()
     {
-        private TData data;
+        protected TData data;
         protected TRepository obj;
+        protected DbContext db;
+        protected int count;
+        protected DbSet<TData> dbSet;
 
        
 
@@ -30,6 +33,30 @@ namespace HW4.Tests.Infra
         {
             type = typeof(TRepository);
             data = GetRandom.Object<TData>();
+            cleanDbSet();
+            addItems();
+        }
+        protected void cleanDbSet()
+        {
+            foreach (var p in dbSet)
+                db.Entry(p).State = EntityState.Deleted;
+            db.SaveChanges();
+        }
+        protected void testGetList()
+        {
+            obj.PageIndex = GetRandom.Int32(2, obj.TotalPages - 1);
+            var l = obj.Get().GetAwaiter().GetResult();
+            Assert.AreEqual(obj.PageSize, l.Count);
+        }
+        protected void addItems()
+        {
+            for (var i = 0; i < count; i++)
+                obj.Add(getObject(GetRandom.Object<TData>())).GetAwaiter();
+        }
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            cleanDbSet();
         }
 
 
@@ -52,7 +79,7 @@ namespace HW4.Tests.Infra
 
         protected abstract Type getBaseType();
 
-        protected abstract void testGetList();
+       
 
         [TestMethod]
         public void DeleteTest()

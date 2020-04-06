@@ -1,4 +1,5 @@
 ﻿using HW4.Aids;
+using HW4.Data.Quantity;
 using HW4.Domain.Quantity;
 
 namespace HW4.Facade.Quantity
@@ -7,14 +8,15 @@ namespace HW4.Facade.Quantity
     {
         public static Unit Create(UnitView v)
         {
-            var o = new Unit();
-            Copy.Members(v, o.Data);
-            return o;
+            var d = new UnitData();
+            Copy.Members(v, d);
+            return new Unit(d);
         }
         public static UnitView Create(Unit o)
         {
             var v = new UnitView();
-            Copy.Members(o.Data, v);
+            if(!( o?.Data is null))
+                Copy.Members(o.Data, v);
             
             return v;
         }
